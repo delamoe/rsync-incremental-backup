@@ -2,6 +2,7 @@
 
 # Configuration variables (change as you wish)
 src="/path/to/source"
+excludeItems="/path/to/exclude.txt"
 dst="/path/to/target"
 backupDepth=7
 timeout=1800
@@ -47,7 +48,7 @@ done
 
 # Prepare main rsync configuration
 rsyncFlags="-achv --info=progress2 --timeout=${timeout} --delete --partial-dir=${partialFolderPath} \
---link-dest=${bak1}/ --log-file=${logFile} --exclude=${tempLogBasePath} --chmod=+r"
+--link-dest=${bak1}/ --log-file=${logFile} --exclude=${excludeItems} --exclude=${tempLogBasePath} --chmod=+r"
 
 # Prepare log rsync configuration
 logRsyncFlags="-rhv --remove-source-files --exclude=${logName} --log-file=${logFile}"
